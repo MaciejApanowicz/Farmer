@@ -41,7 +41,8 @@ public class Controller {
                 case 2: {
                     UserView.askForTheNameOfNewBarn();
                     barnName = scanner.next();
-                    Barn newBarn = new Barn(1, barnName, 4);
+                    Barn newBarn = new Barn(barnName,4);
+                    newBarn.setId();
                     janusz.addBarn(newBarn);
                     out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
                     UserView.askForTheNextTask();

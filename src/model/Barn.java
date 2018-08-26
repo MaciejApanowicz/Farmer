@@ -1,23 +1,25 @@
 package model;
 
-import model.Animal;
-
 import java.util.Arrays;
 
 public class Barn {
+    private static int nextID =1;
     private int id;
     private String name;
     private int capacity;
     private Animal[] animals;
 
-    public Barn(int id, String name, int capacity){
-        this.id = id;
+    public Barn(String name, int capacity){
         this.name = name;
         this.capacity = capacity;
         this.animals = new Animal[capacity];
     }
     public int getId(){
         return id;
+    }
+    public void setId(){
+        id = nextID;
+        nextID++;
     }
     public String getName(){
         return name;
