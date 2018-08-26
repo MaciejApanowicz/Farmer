@@ -30,6 +30,7 @@ public class Barn {
     public Animal[] getAnimals() {
         return animals;
     }
+
     public void addAnimal (Animal animalToAdd){
         for (int i = 0; i < animals.length; i ++){
             if (animals[i] == null){

@@ -9,8 +9,9 @@ public class UserView {
 
     public static void showMenu (){
         System.out.println("1 - Show me my barns");
-        System.out.println("2 - Build a new barn");
-        System.out.println("3 - EXIT");
+        System.out.println("2 - Build new barn");
+        System.out.println("3 - Add new animal");
+        System.out.println("4 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
         System.out.println("Write a name of this barn");
@@ -29,5 +30,13 @@ public class UserView {
     }
     public static void messageExit () {
         System.out.println("You have exited the program.");
+    }
+    public static void messageAfter3rdOption(){
+        System.out.println("You have decided to add new animal. What is the type of new animal? ");
+    }
+    public static void showAvailiabeAnimalType(){
+        System.out.println("1 - Pig");
+        System.out.println("2 - Cow");
+        System.out.println("3 - Return");
     }
 }

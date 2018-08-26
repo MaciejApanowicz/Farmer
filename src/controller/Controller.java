@@ -1,10 +1,13 @@
 package controller;
 
+import model.Animal;
 import model.Barn;
 import model.Farmer;
+import model.Pig;
 import view.UserView;
 
 import java.util.Scanner;
+
 import static java.lang.System.out;
 
 public class Controller {
@@ -48,8 +51,31 @@ public class Controller {
                     UserView.askForTheNextTask();
                     break;
                 }
+                case  3:{
+                    UserView.messageAfter3rdOption();
+                    UserView.showAvailiabeAnimalType();
+                    int animalType = scanner.nextInt();
+                    switch (animalType){
+                        case 1: {
+                            System.out.println("So farmer , you want to add new Pig?");
+                            Animal test = new Pig("piggy",0.5,false);
+                            janusz.barnArray[0].addAnimal(test);
+                            System.out.println("Swinka została dołączona do farmy");
+                            janusz.showMyBarns();
+                            break;
+                        }
+                        case 2: {
+                            break;
+                        }
+                        case 3: {
+                            System.out.println();
+                            break;
+                        }
+                    }
+
+                }
             }
-        }while (choose != 3) ;
+        }while (choose != 4) ;
         UserView.messageExit();
     }
 }

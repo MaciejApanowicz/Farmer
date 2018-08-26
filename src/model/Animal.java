@@ -1,41 +1,32 @@
 package model;
 
-public class Animal {
-    private String type;
-    private int age;
+public abstract class Animal {
+    private String name;
+    private double age;
     private boolean isVaccinated;
 
-    public Animal (String type, int age, boolean isVaccinated){
-        this.type = type;
+    public Animal (String name,double age, boolean isVaccinated){
+        this.name = name;
         this.age = age;
         this.isVaccinated = isVaccinated;
     }
-    public Animal (){
+
+    public final String getName (){
+        return name;
     }
 
-    public String getType(){
-        return type;
-    }
-    public void setType(String type) {
-        this.type = type;
-    }
-    public int getAge() {
+    public double getAge() {
         return age;
     }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public boolean getIsVaccinated() {
+
+    public boolean isVaccinated() {
         return isVaccinated;
-    }
-    public void setVaccinated(boolean vaccinated) {
-        isVaccinated = vaccinated;
     }
 
     @Override
     public String toString() {
         return "model.Animal{" +
-                "type='" + type + '\'' +
+                "type='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +
                 '}';
