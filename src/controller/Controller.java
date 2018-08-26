@@ -6,6 +6,7 @@ import view.UserView;
 
 import java.util.Scanner;
 import static java.lang.System.out;
+import static java.lang.System.setOut;
 
 public class Controller {
     private Scanner scanner;
@@ -39,9 +40,18 @@ public class Controller {
                     }   break;
                 }
                 case 2: {
-                    UserView.askForTheNameOfNewBarn();
-                    barnName = scanner.next();
-                    Barn newBarn = new Barn(barnName,4);
+                    System.out.println("Pierwszy skaner nie działa: ");
+                    String pierwszySkaner = scanner.nextLine(); //nie działa pierwszy skaner.
+                    System.out.println("Drugi skaner działa: ");
+                    String drugiSkaner = scanner.nextLine(); // ale drugi skaner już działa
+                    System.out.println("Trzeci skaner też działa!: ");
+                    String trzeciSkaner = scanner.nextLine(); // no i trzeci też działa prawidłowo
+
+                    System.out.println("pierwszy skaner: " + pierwszySkaner);
+                    System.out.println("drugi skaner: " + drugiSkaner);
+                    System.out.println("trzeci skaner: " + trzeciSkaner);
+
+                    Barn newBarn = new Barn(trzeciSkaner,4);
                     newBarn.setId();
                     janusz.addBarn(newBarn);
                     out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
