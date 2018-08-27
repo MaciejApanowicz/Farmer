@@ -8,7 +8,6 @@ public class Farmer {
     }
 
     public void addBarn (Barn barnToAdd) {
-        System.out.println();
         for (int i = 0; i < barnArray.length; i++) {
             {
                 if (barnArray[i] == null){
@@ -17,6 +16,15 @@ public class Farmer {
                 }
             }
         }
+    }
+
+    public int countFarmerBarns(){
+        int numberOfBarns = 0;
+        for (int i = 0; i< barnArray.length; i++){
+            if (barnArray[i]!=null)
+                numberOfBarns += 1;
+        }
+        return numberOfBarns;
     }
 
     public void showMyBarns (){

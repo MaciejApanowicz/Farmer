@@ -45,8 +45,8 @@ public class Barn {
         return "Barn{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", capacity=" + capacity +
-                ", animals=" + (animals == null ? null : Arrays.asList(animals)) +
+                ", capacity=" + capacity + ", " + '\n' +
+                "animals=" + (animals == null ? null : Arrays.asList(animals)) +
                 '}';
     }
 }

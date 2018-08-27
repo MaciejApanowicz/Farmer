@@ -39,7 +39,27 @@ public class UserView {
     }
     public static void showAvailiabeAnimalType(){
         System.out.println("1 - Pig");
-        System.out.println("2 - Cow");
+        System.out.println("2 - Sorry, not available yet");
         System.out.println("3 - Return");
+    }
+    public  static void tryingAddAnimalWithoutHavingAnyBarn(){
+        System.out.println("Man, you don't have any barn yet! ");
+        System.out.println( "Where were you gonna keep this animal, in your house?");
+        System.out.println("Just build at least one barn first!" + '\n');
+    }
+    public static void askForAnimalName(){
+        System.out.println("What is a name of this new animal?");
+    }
+    public static void askForAnimalAge() {
+        System.out.println("How old is this animal? (if a decimal number use comma as decimal separator) ");
+    }
+    public static void askIfVaccinated(){
+        System.out.println("is it vaccinated? Type yes / no ");
+    }
+    public static void confirmationAddAnimal(){
+        System.out.println("Good! This animal has been added to this barn!" + '\n');
+    }
+    public static void someQuestionsAboutNewAnimal(){
+        System.out.println("Sure farmer. Let me ask you some questions.");
     }
 }

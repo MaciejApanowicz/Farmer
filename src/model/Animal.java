@@ -25,8 +25,8 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return "model.Animal{" +
-                "type='" + name + '\'' +
+        return "Animal{" +
+                "name='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +
                 '}';
