@@ -3,10 +3,8 @@ package controller;
 import model.Barn;
 import model.Farmer;
 import view.UserView;
-
 import java.util.Scanner;
 import static java.lang.System.out;
-import static java.lang.System.setOut;
 
 public class Controller {
     private Scanner scanner;
@@ -24,7 +22,6 @@ public class Controller {
 
     public void createMenu() {
         int choose;
-        String barnName;
         do {
             UserView.showMenu();
             choose = scanner.nextInt();
@@ -42,9 +39,10 @@ public class Controller {
                 case 2: {
                     Scanner scanner2 = new Scanner(System.in);
                     UserView.askForTheNameOfNewBarn();
-                    String pierwszySkaner = scanner2.nextLine();
-
-                    Barn newBarn = new Barn(pierwszySkaner,4);
+                    String barnName = scanner2.nextLine();
+                    UserView.askHowManyAnimalsWillBeInThisBarn();
+                    int capacity = scanner2.nextInt();
+                    Barn newBarn = new Barn(barnName,capacity);
                     newBarn.setId();
                     janusz.addBarn(newBarn);
                     out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());

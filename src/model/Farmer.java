@@ -20,7 +20,6 @@ public class Farmer {
     }
 
     public void showMyBarns (){
-
         for (int i =0; i< barnArray.length;i++){
             if (barnArray[i]!=null){
             System.out.println(barnArray[i].toString());}
