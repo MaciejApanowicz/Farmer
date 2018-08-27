@@ -13,7 +13,7 @@ public class UserView {
         System.out.println("3 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
-        System.out.println("Write a name of this barn");
+        System.out.println("Write a name of new barn");
     }
     public static void askForTheNextTask(){
         System.out.println('\n' + "What can I do for you next?");

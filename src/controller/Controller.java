@@ -40,18 +40,11 @@ public class Controller {
                     }   break;
                 }
                 case 2: {
-                    System.out.println("Pierwszy skaner nie działa: ");
-                    String pierwszySkaner = scanner.nextLine(); //nie działa pierwszy skaner.
-                    System.out.println("Drugi skaner działa: ");
-                    String drugiSkaner = scanner.nextLine(); // ale drugi skaner już działa
-                    System.out.println("Trzeci skaner też działa!: ");
-                    String trzeciSkaner = scanner.nextLine(); // no i trzeci też działa prawidłowo
+                    Scanner scanner2 = new Scanner(System.in);
+                    UserView.askForTheNameOfNewBarn();
+                    String pierwszySkaner = scanner2.nextLine();
 
-                    System.out.println("pierwszy skaner: " + pierwszySkaner);
-                    System.out.println("drugi skaner: " + drugiSkaner);
-                    System.out.println("trzeci skaner: " + trzeciSkaner);
-
-                    Barn newBarn = new Barn(trzeciSkaner,4);
+                    Barn newBarn = new Barn(pierwszySkaner,4);
                     newBarn.setId();
                     janusz.addBarn(newBarn);
                     out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
