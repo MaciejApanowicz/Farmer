@@ -26,7 +26,6 @@ public class Controller {
 
     public void createMenu() {
         int choose;
-        String barnName;
         do {
             UserView.showMenu();
             choose = scanner.nextInt();
@@ -42,9 +41,12 @@ public class Controller {
                     }   break;
                 }
                 case 2: {
+                    Scanner scanner2 = new Scanner(System.in);
                     UserView.askForTheNameOfNewBarn();
-                    barnName = scanner.next();
-                    Barn newBarn = new Barn(barnName,4);
+                    String barnName = scanner2.nextLine();
+                    UserView.askHowManyAnimalsWillBeInThisBarn();
+                    int capacity = scanner2.nextInt();
+                    Barn newBarn = new Barn(barnName,capacity);
                     newBarn.setId();
                     janusz.addBarn(newBarn);
                     out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
