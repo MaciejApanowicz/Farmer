@@ -3,6 +3,7 @@ package controller;
 import model.Barn;
 import model.Farmer;
 import view.UserView;
+
 import java.util.Scanner;
 import static java.lang.System.out;
 
