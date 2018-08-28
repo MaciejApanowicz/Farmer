@@ -5,11 +5,12 @@ public abstract class Animal {
     private double age;
     private boolean isVaccinated;
 
-    public Animal (String name,double age, boolean isVaccinated){
+    Animal(String name, double age, boolean isVaccinated){
         this.name = name;
         this.age = age;
         this.isVaccinated = isVaccinated;
     }
+    public abstract String getTYPE();
 
     public final String getName (){
         return name;
@@ -26,7 +27,8 @@ public abstract class Animal {
     @Override
     public String toString() {
         return "Animal{" +
-                "name='" + name + '\'' +
+                getTYPE() +
+                ", name='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +
                 '}';

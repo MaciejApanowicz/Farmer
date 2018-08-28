@@ -39,7 +39,7 @@ public class UserView {
     }
     public static void showAvailiabeAnimalType(){
         System.out.println("1 - Pig");
-        System.out.println("2 - Sorry, not available yet");
+        System.out.println("2 - Cow");
         System.out.println("3 - Return");
     }
     public  static void tryingAddAnimalWithoutHavingAnyBarn(){
@@ -61,5 +61,8 @@ public class UserView {
     }
     public static void someQuestionsAboutNewAnimal(){
         System.out.println("Sure farmer. Let me ask you some questions.");
+    }
+    public static void askForBarnNumberToAddAnimal(){
+        System.out.println("Which barn should this animal lives? Type barn ID of your choice");
     }
 }

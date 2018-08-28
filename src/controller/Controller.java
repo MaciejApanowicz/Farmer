@@ -1,13 +1,9 @@
 package controller;
 
-import model.Animal;
-import model.Barn;
-import model.Farmer;
-import model.Pig;
+import model.*;
 import view.UserView;
 import java.util.Scanner;
 import static java.lang.System.out;
-
 
 public class Controller {
    private Scanner scanner;
@@ -71,14 +67,33 @@ public class Controller {
                             UserView.askIfVaccinated();
                             boolean isItVacinated = scanner3.hasNext("yes");
                             Animal animalToAdd = new Pig(pigName,pigAge,isItVacinated);
-                            janusz.barnArray[0].addAnimal(animalToAdd);
-                            UserView.confirmationAddAnimal();
+                            UserView.showFarmerBarns();
                             janusz.showMyBarns();
+                            UserView.askForBarnNumberToAddAnimal();
+                            int whichBarn = scanner.nextInt();
+                            janusz.barnArray[whichBarn-1].addAnimal(animalToAdd);
+                            UserView.confirmationAddAnimal();
+                            System.out.println(janusz.barnArray[whichBarn-1].toString());
                             System.out.println();
                             break;
                         }
                         case 2: {
-                            System.out.println("Sorry, Not available yet" + '\n');
+                            UserView.someQuestionsAboutNewAnimal();
+                            UserView.askForAnimalName();
+                            String cowName = scanner3.nextLine();
+                            UserView.askForAnimalAge();
+                            double cowAge = scanner3.nextDouble();
+                            UserView.askIfVaccinated();
+                            boolean isItVacinated = scanner3.hasNext("yes");
+                            Animal animalToAdd = new Cow(cowName,cowAge,isItVacinated);
+                            UserView.showFarmerBarns();
+                            janusz.showMyBarns();
+                            UserView.askForBarnNumberToAddAnimal();
+                            int whichBarn = scanner.nextInt();
+                            janusz.barnArray[whichBarn-1].addAnimal(animalToAdd);
+                            UserView.confirmationAddAnimal();
+                            System.out.println(janusz.barnArray[whichBarn-1].toString());
+                            System.out.println();
                             break;
                         }
                         case 3: {
@@ -86,7 +101,6 @@ public class Controller {
                             break;
                         }
                     }
-
                 }
             }
         }while (choose != 4) ;

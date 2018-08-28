@@ -1,7 +1,7 @@
 package model;
 
 public class Pig extends Animal{
-    private final String TYPE = "pig";
+    private final String TYPE = "PIG";
 
     public Pig (String name, double age, boolean isVaccinated){
         super(name, age, isVaccinated);
