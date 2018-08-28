@@ -38,10 +38,10 @@ public class Controller {
                 }
                 case 2: {
                     UserView.askForTheNameOfNewBarn();
-                    Scanner scanner2 = new Scanner(System.in);
-                    String barnName = scanner2.nextLine();
+                    Scanner scanner = new Scanner(System.in);
+                    String barnName = scanner.nextLine();
                     UserView.askHowManyAnimalsWillBeInThisBarn();
-                    int capacity = scanner2.nextInt();
+                    int capacity = scanner.nextInt();
                     Barn newBarn = new Barn(barnName, capacity);
                     newBarn.setId();
                     janusz.addBarn(newBarn);
@@ -57,21 +57,21 @@ public class Controller {
                     UserView.messageAfter3rdOption();
                     UserView.showAvailiabeAnimalType();
                     int animalType = scanner.nextInt();
-                    Scanner scanner3 = new Scanner(System.in);
+                    Scanner scanner = new Scanner(System.in);
                     switch (animalType) {
                         case 1: {
                             UserView.someQuestionsAboutNewAnimal();
                             UserView.askForAnimalName();
-                            String pigName = scanner3.nextLine();
+                            String pigName = scanner.nextLine();
                             UserView.askForAnimalAge();
-                            double pigAge = scanner3.nextDouble();
+                            double pigAge = scanner.nextDouble();
                             UserView.askIfVaccinated();
-                            boolean isItVaccinated = scanner3.hasNext("yes");
+                            boolean isItVaccinated = scanner.hasNext("yes");
                             Animal animalToAdd = new Pig(pigName, pigAge, isItVaccinated);
                             UserView.showFarmerBarns();
                             janusz.showMyBarns();
                             UserView.askForBarnNumberToAddAnimal();
-                            int whichBarn = scanner.nextInt();
+                            int whichBarn = this.scanner.nextInt();
                             janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
                             UserView.confirmationAddAnimal();
                             System.out.println(janusz.barnArray[whichBarn - 1].toString());
@@ -81,16 +81,16 @@ public class Controller {
                         case 2: {
                             UserView.someQuestionsAboutNewAnimal();
                             UserView.askForAnimalName();
-                            String cowName = scanner3.nextLine();
+                            String cowName = scanner.nextLine();
                             UserView.askForAnimalAge();
-                            double cowAge = scanner3.nextDouble();
+                            double cowAge = scanner.nextDouble();
                             UserView.askIfVaccinated();
-                            boolean isItVaccinated = scanner3.hasNext("yes");
+                            boolean isItVaccinated = scanner.hasNext("yes");
                             Animal animalToAdd = new Cow(cowName, cowAge, isItVaccinated);
                             UserView.showFarmerBarns();
                             janusz.showMyBarns();
                             UserView.askForBarnNumberToAddAnimal();
-                            int whichBarn = scanner.nextInt();
+                            int whichBarn = this.scanner.nextInt();
                             janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
                             UserView.confirmationAddAnimal();
                             System.out.println(janusz.barnArray[whichBarn - 1].toString());
@@ -100,16 +100,16 @@ public class Controller {
                         case 3: {
                             UserView.someQuestionsAboutNewAnimal();
                             UserView.askForAnimalName();
-                            String animalName = scanner3.nextLine();
+                            String animalName = scanner.nextLine();
                             UserView.askForAnimalAge();
-                            double animalAge = scanner3.nextDouble();
+                            double animalAge = scanner.nextDouble();
                             UserView.askIfVaccinated();
-                            boolean isItVaccinated = scanner3.hasNext("yes");
+                            boolean isItVaccinated = scanner.hasNext("yes");
                             Animal animalToAdd = new Sheep(animalName, animalAge, isItVaccinated);
                             UserView.showFarmerBarns();
                             janusz.showMyBarns();
                             UserView.askForBarnNumberToAddAnimal();
-                            int whichBarn = scanner.nextInt();
+                            int whichBarn = this.scanner.nextInt();
                             janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
                             UserView.confirmationAddAnimal();
                             System.out.println(janusz.barnArray[whichBarn - 1].toString());
@@ -119,16 +119,16 @@ public class Controller {
                         case 4: {
                             UserView.someQuestionsAboutNewAnimal();
                             UserView.askForAnimalName();
-                            String animalName = scanner3.nextLine();
+                            String animalName = scanner.nextLine();
                             UserView.askForAnimalAge();
-                            double animalAge = scanner3.nextDouble();
+                            double animalAge = scanner.nextDouble();
                             UserView.askIfVaccinated();
-                            boolean isItVaccinated = scanner3.hasNext("yes");
+                            boolean isItVaccinated = scanner.hasNext("yes");
                             Animal animalToAdd = new Horse(animalName, animalAge, isItVaccinated);
                             UserView.showFarmerBarns();
                             janusz.showMyBarns();
                             UserView.askForBarnNumberToAddAnimal();
-                            int whichBarn = scanner.nextInt();
+                            int whichBarn = this.scanner.nextInt();
                             janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
                             UserView.confirmationAddAnimal();
                             System.out.println(janusz.barnArray[whichBarn - 1].toString());
