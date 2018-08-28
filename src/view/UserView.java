@@ -17,7 +17,7 @@ public class UserView {
         System.out.println("Write a name of this new barn");
     }
     public static void askHowManyAnimalsWillBeInThisBarn(){
-        System.out.println("How big is this barn. How many animals can live here?");
+        System.out.println("How big is this barn. How many animals can live here? (Type an integer)");
     }
     public static void askForTheNextTask(){
         System.out.println('\n' + "What can I do for you next?");
@@ -26,7 +26,7 @@ public class UserView {
         return "This barn has been built: ";
     }
     public static void showFarmerBarns(){
-        System.out.println("Your Barns:");
+        System.out.println("Your Barns:" + '\n');
     }
     public static void messageNoBarnsYet(){
         System.out.println("You do not have any barns yet. Please add some.");
@@ -40,7 +40,9 @@ public class UserView {
     public static void showAvailiabeAnimalType(){
         System.out.println("1 - Pig");
         System.out.println("2 - Cow");
-        System.out.println("3 - Return");
+        System.out.println("3 - Sheep");
+        System.out.println("4 - Horse");
+        System.out.println("5 - Return");
     }
     public  static void tryingAddAnimalWithoutHavingAnyBarn(){
         System.out.println("Man, you don't have any barn yet! ");
@@ -63,6 +65,9 @@ public class UserView {
         System.out.println("Sure farmer. Let me ask you some questions.");
     }
     public static void askForBarnNumberToAddAnimal(){
-        System.out.println("Which barn should this animal lives? Type barn ID of your choice");
+        System.out.println('\n' + "Which barn should this animal lives? Type barn ID of your choice");
+    }
+    public static void instructUserToChooseCorrectly() {
+        System.out.println("Please choose correct number from 1 to 5");
     }
 }
