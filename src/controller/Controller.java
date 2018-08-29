@@ -87,9 +87,9 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
+        janusz.farm.get(whichBarn - 1).addAnimal2(animalToAdd);
         UserView.confirmationAddAnimal();
-        System.out.println(janusz.barnArray[whichBarn - 1].toString());
+        System.out.println(janusz.farm.get(whichBarn - 1).toString());
         System.out.println();
     }
 
@@ -107,9 +107,9 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
+        janusz.farm.get(whichBarn - 1).addAnimal2(animalToAdd);
         UserView.confirmationAddAnimal();
-        System.out.println(janusz.barnArray[whichBarn - 1].toString());
+        System.out.println(janusz.farm.get(whichBarn - 1).toString());
         System.out.println();
     }
 
@@ -127,9 +127,9 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
+        janusz.farm.get(whichBarn - 1).addAnimal2(animalToAdd);
         UserView.confirmationAddAnimal();
-        System.out.println(janusz.barnArray[whichBarn - 1].toString());
+        System.out.println(janusz.farm.get(whichBarn - 1).toString());
         System.out.println();
     }
 
@@ -147,19 +147,17 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.barnArray[whichBarn - 1].addAnimal(animalToAdd);
+        janusz.farm.get(whichBarn - 1).addAnimal2(animalToAdd);
         UserView.confirmationAddAnimal();
-        System.out.println(janusz.barnArray[whichBarn - 1].toString());
+        System.out.println(janusz.farm.get(whichBarn - 1).toString());
         System.out.println();
     }
 
     private void buildNewBarn(){
         UserView.askForTheNameOfNewBarn();
-        Scanner scanner = new Scanner(System.in);
-        String barnName = scanner.nextLine();
-        UserView.askHowManyAnimalsWillBeInThisBarn();
-        int capacity = scanner.nextInt();
-        Barn newBarn = new Barn(barnName, capacity);
+        Scanner scanner2 = new Scanner(System.in);
+        String barnName = scanner2.nextLine();
+        Barn newBarn = new Barn(barnName);
         newBarn.setId();
         janusz.addBarn(newBarn);
         out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
@@ -167,7 +165,7 @@ public class Controller {
     }
     private void showFarmerBarns(){
         UserView.showFarmerBarns();
-        if (janusz.barnArray[0] == null) {
+        if (janusz.countFarmerBarns()==0){
             UserView.messageNoBarnsYet();
             UserView.askForTheNextTask();
         } else {

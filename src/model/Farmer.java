@@ -1,75 +1,28 @@
 package model;
 
-
+import java.util.ArrayList;
 
 public class Farmer {
-
-    public Barn [] barnArray;
-
-
+    public ArrayList<Barn> farm;
 
     public Farmer(){
-
-        barnArray = new Barn[10];
-
+        farm = new ArrayList<>();
     }
 
-
-
     public void addBarn (Barn barnToAdd) {
-
-        for (int i = 0; i < barnArray.length; i++) {
-
-            {
-
-                if (barnArray[i] == null){
-
-                    this.barnArray[i] = barnToAdd;
-
-                    break;
-
-                }
-
-            }
-
-        }
-
+       farm.add(barnToAdd);
     }
 
     public int countFarmerBarns(){
-
-        int numberOfBarns = 0;
-
-        for (int i = 0; i< barnArray.length; i++){
-
-            if (barnArray[i]!=null)
-
-                numberOfBarns += 1;
-
-        }
-
-        return numberOfBarns;
-
+       return farm.size();
     }
-
-
 
     public void showMyBarns (){
-
-        for (int i =0; i< barnArray.length;i++){
-
-            if (barnArray[i]!=null){
-
-                System.out.println(barnArray[i].toString());
-
-                if (i!= countFarmerBarns()-1)
-
-                    System.out.println();
-
+        for (Barn b : farm){
+            System.out.println(b.toString());
             }
-
-        }
-
     }
-
 }
+
+
+
