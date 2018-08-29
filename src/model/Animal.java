@@ -15,19 +15,16 @@ public abstract class Animal {
     public final String getName (){
         return name;
     }
-
     public double getAge() {
         return age;
     }
-
     public boolean isVaccinated() {
         return isVaccinated;
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
-                getTYPE() +
+        return getTYPE() +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +
