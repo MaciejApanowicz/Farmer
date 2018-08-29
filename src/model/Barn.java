@@ -27,11 +27,11 @@ public class Barn {
 
     @Override
     public String toString() {
-        return "Barn{" +
+        return "Barn(" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", animals= " + '{' + (animals2 == null ? null : Arrays.asList(animals2)) +
-                '}';
+                ", animals2=" + animals2 +
+                ')';
     }
 }
 

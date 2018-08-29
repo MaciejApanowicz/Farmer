@@ -24,7 +24,7 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return getTYPE() +
+        return '{' + getTYPE() +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +
