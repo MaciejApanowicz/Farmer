@@ -95,8 +95,8 @@ public class Controller {
 
     private void buildNewBarn(){
         UserView.askForTheNameOfNewBarn();
-        Scanner scanner2 = new Scanner(System.in);
-        String barnName = scanner2.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String barnName = scanner.nextLine();
         Barn newBarn = new Barn(barnName);
         newBarn.setId();
         janusz.addBarn(newBarn);
@@ -121,7 +121,7 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.farm.get(whichBarn - 1).addAnimal2(animalToAdd);
+        janusz.farm.get(whichBarn - 1).addAnimal(animalToAdd);
         UserView.confirmationAddAnimal();
         System.out.println(janusz.farm.get(whichBarn - 1).toString());
         System.out.println();

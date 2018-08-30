@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Farmer {
     public ArrayList<Barn> farm;
-    public static Animal animalToAdd;
+    private static Animal animalToAdd;
 
     public Farmer(){
         farm = new ArrayList<>();
