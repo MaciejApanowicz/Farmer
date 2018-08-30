@@ -1,16 +1,15 @@
 package model;
 
-public abstract class Animal {
+public  class Animal {
     private String name;
     private double age;
     private boolean isVaccinated;
 
-    Animal(String name, double age, boolean isVaccinated){
+    public Animal(String name, double age, boolean isVaccinated){
         this.name = name;
         this.age = age;
         this.isVaccinated = isVaccinated;
     }
-    public abstract String getTYPE();
 
     public final String getName (){
         return name;
@@ -24,7 +23,7 @@ public abstract class Animal {
 
     @Override
     public String toString() {
-        return '{' + getTYPE() +
+        return // '{' + getTYPE() +   ..zrób to
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", isVaccinated=" + isVaccinated +

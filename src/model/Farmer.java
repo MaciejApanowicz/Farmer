@@ -23,7 +23,7 @@ public class Farmer {
             System.out.println(b.toString());
             }
     }
-    public Animal getAnimalToAdd(){
+    public static Animal getAnimalToAdd(){
         return animalToAdd;
     }
     public static void setAnimalToAdd(Animal animalToAdd) {
