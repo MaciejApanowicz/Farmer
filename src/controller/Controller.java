@@ -90,6 +90,10 @@ public class Controller {
         Animal animalToAdd = new Horse(animalName, animalAge, isItVaccinated);
         Farmer.setAnimalToAdd(animalToAdd);
     }
+    public String getAnimalName(Scanner Scanner){
+        UserView.askForAnimalName();
+        return scanner.nextLine();
+    }
 
     private void addNewSheep(){
         UserView.someQuestionsAboutNewAnimal();
@@ -160,11 +164,6 @@ public class Controller {
             janusz.showMyBarns();
             UserView.askForTheNextTask();
         }
-    }
-
-    private String getAnimalName(Scanner Scanner){
-        UserView.askForAnimalName();
-        return scanner.nextLine();
     }
 }
 
