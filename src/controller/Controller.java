@@ -8,7 +8,6 @@ import static java.lang.System.out;
 public class Controller {
     private Scanner scanner;
     private Farmer janusz;
-    //private AnimalsFactory animalsFactory = AnimalsFactory.getINSTANCE();
 
     public Controller() {
         scanner = new Scanner(System.in);

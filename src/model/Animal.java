@@ -5,7 +5,7 @@ public abstract class Animal {
     private double age;
     private boolean isVaccinated;
 
-    public Animal(String name, double age, boolean isVaccinated) {
+    Animal(String name, double age, boolean isVaccinated) {
         this.name = name;
         this.age = age;
         this.isVaccinated = isVaccinated;

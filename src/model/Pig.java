@@ -2,7 +2,7 @@ package model;
 
 public class Pig extends Animal{
 
-    public Pig (String name, double age, boolean isVaccinated){
+    Pig(String name, double age, boolean isVaccinated){
         super(name, age, isVaccinated);
     }
 
