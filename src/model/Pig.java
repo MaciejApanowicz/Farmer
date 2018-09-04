@@ -6,10 +6,6 @@ public class Pig extends Animal{
         super(name, age, isVaccinated);
     }
 
-    public Pig (){
-        super();
-    }
-
     public final String getTYPE(){
         return "PIG";
     }

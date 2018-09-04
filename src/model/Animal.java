@@ -11,30 +11,18 @@ public abstract class Animal {
         this.isVaccinated = isVaccinated;
     }
     public Animal (){
-    };
+    }
 
     public final String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getAge() {
         return age;
     }
 
-    public void setAge(double age) {
-        this.age = age;
-    }
-
     public boolean isVaccinated() {
         return isVaccinated;
-    }
-
-    public void setVaccinated(boolean vaccinated) {
-        isVaccinated = vaccinated;
     }
 
     public abstract String getTYPE();

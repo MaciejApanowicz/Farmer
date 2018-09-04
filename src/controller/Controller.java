@@ -8,7 +8,7 @@ import static java.lang.System.out;
 public class Controller {
     private Scanner scanner;
     private Farmer janusz;
-    private AnimalsFactory animalsFactory = AnimalsFactory.getINSTANCE();
+    //private AnimalsFactory animalsFactory = AnimalsFactory.getINSTANCE();
 
     public Controller() {
         scanner = new Scanner(System.in);
@@ -44,13 +44,7 @@ public class Controller {
                     int animalType = scanner.nextInt();
                     switch (animalType) {
                         case 1: {
-                            createNewAnimal("PIG");
-
-                            addAnimalToBarn(createNewAnimal("PIG")); //jest świnia tylko pusta
-                            Animal pig = AnimalsFactory.getAnimal("Pig");
-                            pig.setName(animalName);
-
-
+                            addAnimalToBarn(createNewAnimal("PIG"));
                             break;
                         }
                         case 2: {
@@ -58,10 +52,7 @@ public class Controller {
                             break;
                         }
                         case 3: {
-                            addAnimalToBarn( createNewAnimal("Sheep"));
-//                            createNewAnimal();
-//                           Sheep sheepToAdd = new Sheep(Farmer.getAnimalToAdd().getName(),Farmer.getAnimalToAdd().getAge(),Farmer.getAnimalToAdd().isVaccinated());
-//                            addAnimalToBarn(sheepToAdd);
+                            addAnimalToBarn( createNewAnimal("SHEEP"));
                             break;
                         }
                         case 4: {
@@ -119,7 +110,7 @@ public class Controller {
         double animalAge = scanner.nextDouble();
         UserView.askIfVaccinated();
         boolean isItVaccinated = scanner.hasNext("yes");
-        return AnimalsFactory.getAnimal(animalType);
+        return AnimalsFactory.getAnimal(animalType, animalName, animalAge,isItVaccinated);
     }
 
     private void addAnimalToBarn(Animal animalToAdd) {

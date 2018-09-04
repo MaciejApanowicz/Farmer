@@ -9,18 +9,18 @@ public class AnimalsFactory {
         return INSTANCE;
     }
 
-    public static Animal getAnimal(String animalType) {
+    public static Animal getAnimal(String animalType, String name, double age, boolean isVaccinated) {
         if (animalType == null) {
             return null;
         }
         if (animalType.equals("PIG"))
             return new Pig(name, age, isVaccinated);
         if (animalType.equals("COW"))
-            return new Cow();
+            return new Cow(name, age, isVaccinated);
         if (animalType.equals("SHEEP"))
-            return new Sheep();
+            return new Sheep(name, age, isVaccinated);
         if (animalType.equals("HORSE")) {
-            return new Horse();
+            return new Horse(name, age, isVaccinated);
         }
         return null;
     }
