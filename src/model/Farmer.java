@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Farmer {
     public ArrayList<Barn> farm;
-    private static Animal animalToAdd;
 
     public Farmer(){
         farm = new ArrayList<>();
@@ -22,12 +21,6 @@ public class Farmer {
         for (Barn b : farm){
             System.out.println(b.toString());
             }
-    }
-    public static Animal getAnimalToAdd(){
-        return animalToAdd;
-    }
-    public static void setAnimalToAdd(Animal animalToAdd) {
-        Farmer.animalToAdd = animalToAdd;
     }
 }
 

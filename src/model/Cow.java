@@ -1,16 +1,18 @@
 package model;
 
 public class Cow extends Animal {
-    private final String TYPE = "COW";
 
-    public Cow (String name, double age, boolean isVaccinated){
+    public Cow(String name, double age, boolean isVaccinated) {
         super(name, age, isVaccinated);
     }
+    public Cow(){
+    };
 
-    public final String getTYPE(){
-        return TYPE;
+    public final String getTYPE() {
+        return "COW";
     }
-    public void sound(){
+
+    public void sound() {
         System.out.println("moo moomooo");
     }
 }

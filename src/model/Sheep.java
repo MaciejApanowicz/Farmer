@@ -1,16 +1,19 @@
 package model;
 
-public class Sheep extends Animal{
-    private final String TYPE = "SHEEP";
+public class Sheep extends Animal {
 
-    public Sheep (String name, double age, boolean isVaccinated){
+    public Sheep(String name, double age, boolean isVaccinated) {
         super(name, age, isVaccinated);
     }
 
-    public final String getTYPE(){
-        return TYPE;
+    public Sheep (){
     }
-    public void sound(){
+
+    public final String getTYPE() {
+        return "SHEEP";
+    }
+
+    public void sound() {
         System.out.println("baa baa baa");
     }
 }
