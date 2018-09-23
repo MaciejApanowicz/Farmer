@@ -13,6 +13,10 @@ public class Farmer {
        farm.add(barnToAdd);
     }
 
+    public void removeBarn(int barnID){
+        farm.remove(barnID);
+    }
+
     public int countFarmerBarns(){
        return farm.size();
     }

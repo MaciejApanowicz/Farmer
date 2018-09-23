@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 import view.UserView;
+
+import javax.swing.*;
 import java.util.Scanner;
 import static java.lang.System.out;
 
@@ -68,8 +70,12 @@ public class Controller {
                         }
                     }
                 }
+                case 4: {
+                    handleRemoveBarn();
+                    break;
+                }
             }
-        } while (choose != 4);
+        } while (choose != 6);
         UserView.messageExit();
     }
 
@@ -89,6 +95,12 @@ public class Controller {
         janusz.addBarn(newBarn);
         out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
         UserView.askForTheNextTask();
+    }
+    private void handleRemoveBarn(){
+        UserView.messageAfterChoosingBarnRemoval();
+        int idOfTheBarnToBeRemoved = scanner.nextInt();
+        out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(idOfTheBarnToBeRemoved-1).toString());
+        janusz.removeBarn(idOfTheBarnToBeRemoved-1);
     }
 
     private Barn buildNewBarn() {

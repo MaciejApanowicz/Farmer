@@ -8,22 +8,24 @@ public class UserView {
     }
 
     public static void showMenu (){
-        System.out.println("1 - Show me my barns");
+        System.out.println("1 - Show me my farm");
         System.out.println("2 - Build new barn");
         System.out.println("3 - Add new animal");
-        System.out.println("4 - EXIT");
+        System.out.println("4 - Remove barn");
+        System.out.println("5 - Remove animal");
+        System.out.println("6 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
         System.out.println("Write a name of this new barn");
-    }
-    public static void askHowManyAnimalsWillBeInThisBarn(){
-        System.out.println("How big is this barn. How many animals can live here? (Type an integer)");
     }
     public static void askForTheNextTask(){
         System.out.println('\n' + "What can I do for you next?");
     }
     public static String confirmationThatBarnHasBeenBuilt(){
         return "This barn has been built: ";
+    }
+    public static String confirmationThatBarnHasBeenRemoved(){
+        return "This barn has been removed: ";
     }
     public static void showFarmerBarns(){
         System.out.println("Your Barns:" + '\n');
@@ -36,6 +38,10 @@ public class UserView {
     }
     public static void messageAfter3rdOption(){
         System.out.println("You have decided to add new animal. What is the type of new animal? ");
+    }
+    public static void messageAfterChoosingBarnRemoval(){
+        System.out.println("You have decided to remove a whole barn from your farm. " +
+                "What is the Id of the barn you want to choose? ");
     }
     public static void showAvailiabeAnimalType(){
         System.out.println("1 - Pig");
@@ -68,6 +74,6 @@ public class UserView {
         System.out.println('\n' + "Which barn should this animal lives? Type barn ID of your choice");
     }
     public static void instructUserToChooseCorrectly() {
-        System.out.println("Please choose correct number from 1 to 5");
+        System.out.println("Please choose correct number from 1 to 6");
     }
 }
