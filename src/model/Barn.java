@@ -18,6 +18,10 @@ public class Barn {
         nextID++;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void addAnimal(Animal animalToAdd){
                 this.animals.add(animalToAdd);
     }

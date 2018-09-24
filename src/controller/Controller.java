@@ -2,8 +2,6 @@ package controller;
 
 import model.*;
 import view.UserView;
-
-import javax.swing.*;
 import java.util.Scanner;
 import static java.lang.System.out;
 
@@ -29,6 +27,7 @@ public class Controller {
             switch (choose) {
                 case 1: {
                     showFarmerBarns(janusz);
+                    UserView.askForTheNextTask();
                 }
                 break;
                 case 2: {
@@ -68,10 +67,13 @@ public class Controller {
                             UserView.instructUserToChooseCorrectly();
                             break;
                         }
-                    }
+                    } UserView.askForTheNextTask();
+                    break;
                 }
                 case 4: {
+                    UserView.messageAfterChoosingBarnRemoval();
                     handleRemoveBarn();
+                    UserView.askForTheNextTask();
                     break;
                 }
             }
@@ -83,27 +85,31 @@ public class Controller {
         UserView.showFarmerBarns();
         if (farmer.countFarmerBarns() == 0) {
             UserView.messageNoBarnsYet();
-            UserView.askForTheNextTask();
         } else {
             farmer.showMyBarns();
-            UserView.askForTheNextTask();
         }
     }
 
     private void handleAddNewBarn() {
+        showFarmerBarns(janusz);
         Barn newBarn = buildNewBarn();
         janusz.addBarn(newBarn);
         out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
         UserView.askForTheNextTask();
     }
     private void handleRemoveBarn(){
-        UserView.messageAfterChoosingBarnRemoval();
+        UserView.choosingBarnToBeCompletlyRemoved();
+        janusz.showMyBarns();
         int idOfTheBarnToBeRemoved = scanner.nextInt();
-        out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(idOfTheBarnToBeRemoved).toString());
+        int index = 0;
+        for (Barn b : janusz.farm){
+            if (b.getId()!=idOfTheBarnToBeRemoved){
+                index++;
+            } else break;
+        }
+        out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(index).toString());
+        janusz.removeBarn(index);
 
-
-        System.out.println(janusz.farm.indexOf(janusz.farm.get(idOfTheBarnToBeRemoved)));
-        janusz.removeBarn(idOfTheBarnToBeRemoved);
     }
 
     private Barn buildNewBarn() {
@@ -132,10 +138,15 @@ public class Controller {
         janusz.showMyBarns();
         UserView.askForBarnNumberToAddAnimal();
         int whichBarn = this.scanner.nextInt();
-        janusz.farm.get(whichBarn - 1).addAnimal(animalToAdd);
+        int indexNumber = 0;
+        for (Barn b : janusz.farm) {
+            if (b.getId() != whichBarn) {
+                indexNumber++;
+            } else break;
+        }
+        janusz.farm.get(indexNumber).addAnimal(animalToAdd);
         UserView.confirmationAddAnimal();
-        System.out.println(janusz.farm.get(whichBarn - 1).toString());
-        System.out.println();
+        System.out.println(janusz.farm.get(indexNumber).toString());
     }
 }
 

@@ -12,7 +12,7 @@ public class UserView {
         System.out.println("2 - Build new barn");
         System.out.println("3 - Add new animal");
         System.out.println("4 - Remove barn");
-        System.out.println("5 - Remove animal");
+        //todo:System.out.println("5 - Remove animal");
         System.out.println("6 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
@@ -40,8 +40,10 @@ public class UserView {
         System.out.println("You have decided to add new animal. What is the type of new animal? ");
     }
     public static void messageAfterChoosingBarnRemoval(){
-        System.out.println("You have decided to remove a whole barn from your farm. " +
-                "What is the Id of the barn you want to choose? ");
+        System.out.println("You have decided to remove a whole barn from your farm! ");
+    }
+    public static void choosingBarnToBeCompletlyRemoved(){
+        System.out.println("Have a look at your farm then type down the Id of the barn you want to remove:" + '\n');
     }
     public static void showAvailiabeAnimalType(){
         System.out.println("1 - Pig");
