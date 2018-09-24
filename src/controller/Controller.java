@@ -99,8 +99,11 @@ public class Controller {
     private void handleRemoveBarn(){
         UserView.messageAfterChoosingBarnRemoval();
         int idOfTheBarnToBeRemoved = scanner.nextInt();
-        out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(idOfTheBarnToBeRemoved-1).toString());
-        janusz.removeBarn(idOfTheBarnToBeRemoved-1);
+        out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(idOfTheBarnToBeRemoved).toString());
+
+
+        System.out.println(janusz.farm.indexOf(janusz.farm.get(idOfTheBarnToBeRemoved)));
+        janusz.removeBarn(idOfTheBarnToBeRemoved);
     }
 
     private Barn buildNewBarn() {

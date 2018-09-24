@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Barn {
-    private static int nextID =1;
+    private static int nextID = 0;
     private int id;
     private String name;
     private ArrayList<Animal> animals;
