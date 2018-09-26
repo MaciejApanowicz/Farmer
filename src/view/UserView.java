@@ -12,7 +12,7 @@ public class UserView {
         System.out.println("2 - Build new barn");
         System.out.println("3 - Add new animal");
         System.out.println("4 - Remove barn");
-        //todo:System.out.println("5 - Remove animal");
+        System.out.println("5 - Remove cow");
         System.out.println("6 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
@@ -40,7 +40,7 @@ public class UserView {
         System.out.println("You have decided to add new animal. What is the type of new animal? ");
     }
     public static void messageAfterChoosingBarnRemoval(){
-        System.out.println("You have decided to remove a whole barn from your farm! ");
+        System.out.println("You have decided to remove a whole barn! ");
     }
     public static void choosingBarnToBeCompletlyRemoved(){
         System.out.println("Have a look at your farm then type down the Id of the barn you want to remove:" + '\n');
@@ -69,13 +69,29 @@ public class UserView {
     public static void confirmationAddAnimal(){
         System.out.println("Good! This animal has been added to this barn!" + '\n');
     }
+    public static String confirmationOfAnimalRemoval(){
+        return ("Farmer, this animal has been removed:");
+    }
     public static void someQuestionsAboutNewAnimal(){
         System.out.println("Sure farmer. Let me ask you some questions.");
     }
     public static void askForBarnNumberToAddAnimal(){
         System.out.println('\n' + "Which barn should this animal lives? Type barn ID of your choice");
     }
+    public static void askFromWhichBarnShouldAnimalBeRemoved(){
+        System.out.println('\n' + "From which barn should an animal be removed? Type barn ID of your choice");
+    }
     public static void instructUserToChooseCorrectly() {
         System.out.println("Please choose correct number from 1 to 6");
+    }
+
+    public static void notifyNoSuchAnimalInBarn(){
+        System.out.println("Sorry, there is no such animal in an indicated barn");
+    }
+    public static void notifyThereIsNoAnimalInTheFarm(){
+        System.out.println("Sorry Farmer - there is no animal in the farm yet!");
+    }
+    public static void notifyThereIsNoBarn(){
+        System.out.println("Sorry Farmer - you don't have any barn yet!");
     }
 }

@@ -13,4 +13,9 @@ public class Horse extends Animal{
     public void sound(){
         System.out.println("neigh neigh neigh");
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

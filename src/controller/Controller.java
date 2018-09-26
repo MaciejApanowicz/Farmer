@@ -71,9 +71,23 @@ public class Controller {
                     break;
                 }
                 case 4: {
+                    if (janusz.countFarmerBarns() == 0) {
+                        UserView.notifyThereIsNoBarn();
+                        UserView.askForTheNextTask();
+                        break;
+                    }
                     UserView.messageAfterChoosingBarnRemoval();
                     handleRemoveBarn();
                     UserView.askForTheNextTask();
+                    break;
+                }
+                case 5: {
+                    if (janusz.countFarmerBarns() == 0) {
+                        UserView.notifyThereIsNoAnimalInTheFarm();
+                        UserView.askForTheNextTask();
+                        break;
+                    }
+                    removeCowFromBarn();
                     break;
                 }
             }
@@ -97,6 +111,7 @@ public class Controller {
         out.println(UserView.confirmationThatBarnHasBeenBuilt() + newBarn.toString());
         UserView.askForTheNextTask();
     }
+
     private void handleRemoveBarn(){
         UserView.choosingBarnToBeCompletlyRemoved();
         janusz.showMyBarns();
@@ -148,5 +163,24 @@ public class Controller {
         UserView.confirmationAddAnimal();
         System.out.println(janusz.farm.get(indexNumber).toString());
     }
-}
+
+    private void removeCowFromBarn (){
+        UserView.showFarmerBarns();
+        janusz.showMyBarns();
+        UserView.askFromWhichBarnShouldAnimalBeRemoved();
+        Scanner scanner = new Scanner(System.in);
+        int whichBarn = scanner.nextInt();
+
+        Animal cowToBeRemoved = createNewAnimal("COW");
+        if (janusz.farm.get(whichBarn).getAnimals().contains(cowToBeRemoved)){
+            janusz.farm.get(whichBarn).getAnimals().remove(cowToBeRemoved);
+            out.println(UserView.confirmationOfAnimalRemoval() + cowToBeRemoved.toString());
+        } else {
+            UserView.notifyNoSuchAnimalInBarn();
+        }
+        UserView.askForTheNextTask();
+       }
+    }
+
+
 

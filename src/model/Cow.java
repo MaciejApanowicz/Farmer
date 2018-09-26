@@ -13,4 +13,9 @@ public class Cow extends Animal {
     public void sound() {
         System.out.println("moo moomooo");
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

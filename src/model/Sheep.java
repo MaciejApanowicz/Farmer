@@ -13,4 +13,9 @@ public class Sheep extends Animal {
     public void sound() {
         System.out.println("baa baa baa");
     }
+
+    @Override
+    public int compareTo(Object o) {
+        return 0;
+    }
 }

@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Barn {
+public class Barn implements Serializable{
     private static int nextID = 0;
     private int id;
     private String name;
@@ -20,6 +21,10 @@ public class Barn {
 
     public int getId() {
         return id;
+    }
+
+    public ArrayList<Animal> getAnimals() {
+        return animals;
     }
 
     public void addAnimal(Animal animalToAdd){
