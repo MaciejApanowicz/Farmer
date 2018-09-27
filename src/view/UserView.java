@@ -6,13 +6,12 @@ public class UserView {
         System.out.println('\n' + "Welcome Farmer!");
         System.out.println("I was created to help you manage your farm. What can I do for you?" + '\n');
     }
-
     public static void showMenu (){
         System.out.println("1 - Show me my farm");
         System.out.println("2 - Build new barn");
         System.out.println("3 - Add new animal");
         System.out.println("4 - Remove barn");
-        System.out.println("5 - Remove cow");
+        System.out.println("5 - Remove animal");
         System.out.println("6 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
@@ -28,7 +27,7 @@ public class UserView {
         return "This barn has been removed: ";
     }
     public static void showFarmerBarns(){
-        System.out.println("Your Barns:" + '\n');
+        System.out.println("Your Barns:");
     }
     public static void messageNoBarnsYet(){
         System.out.println("You do not have any barns yet. Please add some.");
@@ -39,13 +38,16 @@ public class UserView {
     public static void messageAfter3rdOption(){
         System.out.println("You have decided to add new animal. What is the type of new animal? ");
     }
+    public static void messageAfter5thOption(){
+        System.out.println("You have decided to remove an animal. What's the type of this animal? ");
+    }
     public static void messageAfterChoosingBarnRemoval(){
         System.out.println("You have decided to remove a whole barn! ");
     }
-    public static void choosingBarnToBeCompletlyRemoved(){
+    public static void choosingBarnToBeCompletelyRemoved(){
         System.out.println("Have a look at your farm then type down the Id of the barn you want to remove:" + '\n');
     }
-    public static void showAvailiabeAnimalType(){
+    public static void showAvailableAnimalType(){
         System.out.println("1 - Pig");
         System.out.println("2 - Cow");
         System.out.println("3 - Sheep");
@@ -58,7 +60,7 @@ public class UserView {
         System.out.println("Just build at least one barn first!" + '\n');
     }
     public static void askForAnimalName(){
-        System.out.println("What is a name of this new animal?");
+        System.out.println("What is a name of this animal?");
     }
     public static void askForAnimalAge() {
         System.out.println("How old is this animal? (if a decimal number use comma as decimal separator) ");
@@ -82,9 +84,8 @@ public class UserView {
         System.out.println('\n' + "From which barn should an animal be removed? Type barn ID of your choice");
     }
     public static void instructUserToChooseCorrectly() {
-        System.out.println("Please choose correct number from 1 to 6");
+        System.out.println("Please choose correct number");
     }
-
     public static void notifyNoSuchAnimalInBarn(){
         System.out.println("Sorry, there is no such animal in an indicated barn");
     }
@@ -93,5 +94,6 @@ public class UserView {
     }
     public static void notifyThereIsNoBarn(){
         System.out.println("Sorry Farmer - you don't have any barn yet!");
+        askForTheNextTask();
     }
 }

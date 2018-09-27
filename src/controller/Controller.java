@@ -40,7 +40,7 @@ public class Controller {
                         break;
                     }
                     UserView.messageAfter3rdOption();
-                    UserView.showAvailiabeAnimalType();
+                    UserView.showAvailableAnimalType();
                     int animalType = scanner.nextInt();
                     switch (animalType) {
                         case 1: {
@@ -73,7 +73,6 @@ public class Controller {
                 case 4: {
                     if (janusz.countFarmerBarns() == 0) {
                         UserView.notifyThereIsNoBarn();
-                        UserView.askForTheNextTask();
                         break;
                     }
                     UserView.messageAfterChoosingBarnRemoval();
@@ -87,7 +86,35 @@ public class Controller {
                         UserView.askForTheNextTask();
                         break;
                     }
-                    removeCowFromBarn();
+                    UserView.messageAfter5thOption();
+                    UserView.showAvailableAnimalType();
+                    int animalType = scanner.nextInt();
+                    switch (animalType){
+                        case 1:{
+                            UserView.showFarmerBarns();
+                            janusz.showMyBarns();
+                            removeAnimalFromBarn(createNewAnimal("PIG"));
+                            break;
+                        }
+                        case 2:{
+                            removeAnimalFromBarn(createNewAnimal("COW"));
+                            break;
+                        }
+                        case 3: {
+                            removeAnimalFromBarn(createNewAnimal("SHEEP"));
+                            break;
+                        }
+                        case 4:{
+                            removeAnimalFromBarn(createNewAnimal("HORSE"));
+                            break;
+                        }
+                        case 5:{
+                            System.out.println();
+                            break;
+                        }
+                        default: {
+                        }
+                    }
                     break;
                 }
             }
@@ -113,7 +140,7 @@ public class Controller {
     }
 
     private void handleRemoveBarn(){
-        UserView.choosingBarnToBeCompletlyRemoved();
+        UserView.choosingBarnToBeCompletelyRemoved();
         janusz.showMyBarns();
         int idOfTheBarnToBeRemoved = scanner.nextInt();
         int index = 0;
@@ -124,7 +151,6 @@ public class Controller {
         }
         out.println(UserView.confirmationThatBarnHasBeenRemoved() + janusz.farm.get(index).toString());
         janusz.removeBarn(index);
-
     }
 
     private Barn buildNewBarn() {
@@ -164,23 +190,18 @@ public class Controller {
         System.out.println(janusz.farm.get(indexNumber).toString());
     }
 
-    private void removeCowFromBarn (){
+    private void removeAnimalFromBarn(Animal animalForRemoval){
         UserView.showFarmerBarns();
         janusz.showMyBarns();
         UserView.askFromWhichBarnShouldAnimalBeRemoved();
         Scanner scanner = new Scanner(System.in);
         int whichBarn = scanner.nextInt();
-
-        Animal cowToBeRemoved = createNewAnimal("COW");
-        if (janusz.farm.get(whichBarn).getAnimals().contains(cowToBeRemoved)){
-            janusz.farm.get(whichBarn).getAnimals().remove(cowToBeRemoved);
-            out.println(UserView.confirmationOfAnimalRemoval() + cowToBeRemoved.toString());
+        if (janusz.farm.get(whichBarn).getAnimals().contains(animalForRemoval)){
+            janusz.farm.get(whichBarn).getAnimals().remove(animalForRemoval);
+            out.println(UserView.confirmationOfAnimalRemoval() + animalForRemoval.toString());
         } else {
             UserView.notifyNoSuchAnimalInBarn();
         }
         UserView.askForTheNextTask();
        }
     }
-
-
-
