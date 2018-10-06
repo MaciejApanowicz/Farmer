@@ -1,6 +1,8 @@
 package model;
 
-import java.io.Serializable;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 public abstract class Animal implements Serializable,Comparable {
     private String name;
@@ -28,6 +30,22 @@ public abstract class Animal implements Serializable,Comparable {
     }
 
     public abstract String getTYPE();
+
+    public static void writeAnimal (Animal a){
+        File file = new File("All_Animals_added_history.txt");
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Files.write(file.toPath(), (a.toString()+ '\r'+'\n').getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public boolean equals(Object o) {

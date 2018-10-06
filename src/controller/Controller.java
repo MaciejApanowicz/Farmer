@@ -171,7 +171,9 @@ public class Controller {
         double animalAge = scanner.nextDouble();
         UserView.askIfVaccinated();
         boolean isItVaccinated = scanner.hasNext("yes");
+        Animal.writeAnimal(AnimalsFactory.getAnimal(animalType,animalName,animalAge,isItVaccinated));
         return AnimalsFactory.getAnimal(animalType, animalName, animalAge,isItVaccinated);
+
     }
 
     private void addAnimalToBarn(Animal animalToAdd) {
