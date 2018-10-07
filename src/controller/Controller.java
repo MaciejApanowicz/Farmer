@@ -117,8 +117,14 @@ public class Controller {
                     }
                     break;
                 }
+                case 6: {
+                    janusz.saveFarm();
+                    UserView.confirmationOfSavingTheFarm();
+                    UserView.askForTheNextTask();
+                    break;
+                }
             }
-        } while (choose != 6);
+        } while (choose != 7);
         UserView.messageExit();
     }
 
@@ -159,6 +165,7 @@ public class Controller {
         String barnName = scanner.nextLine();
         Barn newBarn = new Barn(barnName);
         newBarn.setId();
+        Barn.writeBarn(newBarn);
         return newBarn;
     }
 

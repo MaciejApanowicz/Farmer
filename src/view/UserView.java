@@ -12,7 +12,8 @@ public class UserView {
         System.out.println("3 - Add new animal");
         System.out.println("4 - Remove barn");
         System.out.println("5 - Remove animal");
-        System.out.println("6 - EXIT");
+        System.out.println("6 - Save farm to file");
+        System.out.println("7 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
         System.out.println("Write a name of this new barn");
@@ -77,6 +78,10 @@ public class UserView {
     public static void someQuestionsAboutNewAnimal(){
         System.out.println("Sure farmer. Let me ask you some questions.");
     }
+    public static void confirmationOfSavingTheFarm(){
+            System.out.println("Farmer, your farm has been successfully saved to a file:  Farm.txt");
+    }
+
     public static void askForBarnNumberToAddAnimal(){
         System.out.println('\n' + "Which barn should this animal lives? Type barn ID of your choice");
     }

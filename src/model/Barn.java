@@ -1,6 +1,10 @@
 package model;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class Barn implements Serializable{
@@ -38,6 +42,22 @@ public class Barn implements Serializable{
                 ", name=" + name +
                 ", animals=" + animals +
                 ')';
+    }
+
+    public static void writeBarn (Barn barnToWrite){
+        File file = new File("Barn.txt");
+        try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            Files.write(file.toPath(), (barnToWrite.toString()+ '\r'+'\n').getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
