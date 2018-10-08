@@ -1,10 +1,13 @@
 package model;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Farmer {
     public ArrayList<Barn> farm;
@@ -30,6 +33,7 @@ public class Farmer {
             System.out.println(b.toString());
             }
     }
+
     public void saveFarm (){
         ArrayList <Barn> farm = this.farm;
 
@@ -56,6 +60,33 @@ public class Farmer {
             }
         }
 
+    }
+    public ArrayList<Barn> loadFarm (){
+        File file = new File("Farm.txt");
+        try {
+            Scanner in = new Scanner(
+                    new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\Farm.txt"),"UTF-8");
+            Barn [] barns = readFarm(in);
+            } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        }
+        return new ArrayList<Barn>();
+    }
+
+    public  static Barn[] readFarm(Scanner in){
+        int n = in.nextInt();
+        Barn [] barns = new Barn[n];
+        for (int i = 0; i < n; i ++){
+            barns [i] = readBarn(in) ;
+        }return barns;
+    }
+
+    public static Barn readBarn (Scanner in){
+        String line = in.nextLine();
+        String [] tokens = line.split("\\|");
+        int id = Integer.parseInt(tokens[0]);
+        String name = tokens [1];
+        return new Barn(name);
     }
 }
 

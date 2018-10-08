@@ -13,8 +13,10 @@ public class AnimalsFactory {
         if (animalType == null) {
             return null;
         }
-        if (animalType.equals("PIG"))
+        if (animalType.equals("PIG")) {
+            //nie wchodzi tu a powinno//
             return new Pig(name, age, isVaccinated);
+        }
         if (animalType.equals("COW"))
             return new Cow(name, age, isVaccinated);
         if (animalType.equals("SHEEP"))
@@ -22,6 +24,7 @@ public class AnimalsFactory {
         if (animalType.equals("HORSE")) {
             return new Horse(name, age, isVaccinated);
         }
+        System.out.println("źle"); //zwraca nulla zamiast robic konkretny typ zwierzaka//
         return null;
     }
 

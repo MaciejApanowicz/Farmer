@@ -2,6 +2,8 @@ package controller;
 
 import model.*;
 import view.UserView;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static java.lang.System.out;
 
@@ -121,6 +123,25 @@ public class Controller {
                     janusz.saveFarm();
                     UserView.confirmationOfSavingTheFarm();
                     UserView.askForTheNextTask();
+                    break;
+                }
+                case 8: {
+                    janusz.loadFarm();
+                    System.out.println(janusz.farm.toString());
+                    showFarmerBarns(janusz);
+                    break;
+                }
+                case 9: {
+                    try {
+                        Scanner in = new Scanner(
+                                new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\All_Animals_added_history2.txt"),"UTF-8");
+                                Animal x = Animal.readAnimal(in);
+
+                        System.out.println(x);
+                        //addAnimalToBarn(Animal.readAnimal(in));
+                    }catch (FileNotFoundException e){
+                        e.printStackTrace();
+                    }
                     break;
                 }
             }

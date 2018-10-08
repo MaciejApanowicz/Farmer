@@ -3,6 +3,7 @@ package model;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.Scanner;
 
 public abstract class Animal implements Serializable,Comparable {
     private String name;
@@ -32,7 +33,7 @@ public abstract class Animal implements Serializable,Comparable {
     public abstract String getTYPE();
 
     public static void writeAnimal (Animal a){
-        File file = new File("All_Animals_added_history.txt");
+        File file = new File("All_Animals_added_history2.txt");
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -41,10 +42,28 @@ public abstract class Animal implements Serializable,Comparable {
             e.printStackTrace();
         }
         try {
-            Files.write(file.toPath(), (a.toString()+ '\r'+'\n').getBytes(), StandardOpenOption.APPEND);
+            Files.write(file.toPath(), (a.formatToWrite()+ '\r'+'\n').getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static Animal readAnimal (Scanner in){
+        String line = in.nextLine();
+        String[] tokens = line.split("\\|");
+
+        String animalType = tokens[0];
+        String name = tokens[1];
+        double age = Double.parseDouble(tokens[2]);
+        boolean isVaccinated = false;
+        if (tokens[3].equals("true")) isVaccinated = true;
+        for (String t : tokens){
+            System.out.println(t);
+        }
+        if (animalType.equals("PIG")){
+            return AnimalsFactory.getAnimal(animalType, name, age,isVaccinated);
+        }
+        System.out.println(AnimalsFactory.getAnimal(animalType, name, age,isVaccinated));
+       return AnimalsFactory.getAnimal(animalType, name, age,isVaccinated);
     }
 
     @Override
@@ -77,5 +96,8 @@ public abstract class Animal implements Serializable,Comparable {
                 ", age= " + age +
                 ", isVaccinated= " + isVaccinated +
                 '}';
+    }
+    public String formatToWrite (){
+        return getTYPE() + "|" + name + "|" + age +"|" + isVaccinated;
     }
 }
