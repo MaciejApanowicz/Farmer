@@ -3,6 +3,7 @@ package model;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class Animal implements Serializable,Comparable {
@@ -47,11 +48,32 @@ public abstract class Animal implements Serializable,Comparable {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<Animal> animalsInTheBarn (String dataNeededForAnimals){
+        ArrayList<Animal> animals = new ArrayList<>();
+        String [] differentAnimals = dataNeededForAnimals.split("&");
+        for (String s : differentAnimals){
+            String[] tokens = s.split("\\|");
+            String animalType = tokens[0];
+            String name = tokens[1];
+            double age = Double.parseDouble(tokens[2]);
+            boolean isVaccinated = false;
+            if (tokens[3].equals("true")) isVaccinated = true;
+            Animal zwierzatko = AnimalsFactory.getAnimal(animalType, name, age,isVaccinated);
+            animals.add(zwierzatko);
+        }  return  animals;
+    }
+
     public static Animal readAnimal (Scanner in){
         String line = in.nextLine();
         String[] tokens = line.split("\\|");
 
         String animalType = tokens[0];
+        animalType = animalType.substring(1);
+        System.out.println("char at 0 = " + animalType.charAt(0));
+        System.out.println("char at 1 = " + animalType.charAt(1));
+        System.out.println("char at 2 = " + animalType.charAt(2));
+
         String name = tokens[1];
         double age = Double.parseDouble(tokens[2]);
         boolean isVaccinated = false;
@@ -59,10 +81,11 @@ public abstract class Animal implements Serializable,Comparable {
         for (String t : tokens){
             System.out.println(t);
         }
-        if (animalType.equals("PIG")){
-            return AnimalsFactory.getAnimal(animalType, name, age,isVaccinated);
-        }
         System.out.println(AnimalsFactory.getAnimal(animalType, name, age,isVaccinated));
+        System.out.println("Animal type = 'PIG' ? " + animalType.equals("PIG"));
+        System.out.println(animalType); //zwraca PIG
+        Animal zwierzatko = new Pig(name,age,isVaccinated);
+        System.out.println(zwierzatko.toString());
        return AnimalsFactory.getAnimal(animalType, name, age,isVaccinated);
     }
 
@@ -98,6 +121,6 @@ public abstract class Animal implements Serializable,Comparable {
                 '}';
     }
     public String formatToWrite (){
-        return getTYPE() + "|" + name + "|" + age +"|" + isVaccinated;
+        return getTYPE() + "|" + name + "|" + age +"|" + isVaccinated + "&";
     }
 }

@@ -7,13 +7,14 @@ public class UserView {
         System.out.println("I was created to help you manage your farm. What can I do for you?" + '\n');
     }
     public static void showMenu (){
-        System.out.println("1 - Show me my farm");
-        System.out.println("2 - Build new barn");
-        System.out.println("3 - Add new animal");
-        System.out.println("4 - Remove barn");
-        System.out.println("5 - Remove animal");
-        System.out.println("6 - Save farm to file");
-        System.out.println("7 - EXIT");
+        System.out.println(" 1 - Show me my farm");
+        System.out.println(" 2 - Build new barn");
+        System.out.println(" 3 - Add new animal");
+        System.out.println(" 4 - Remove barn");
+        System.out.println(" 5 - Remove animal");
+        System.out.println(" 6 - Save farm to file");
+        System.out.println("10 - Load saved farm");
+        System.out.println(" 7 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
         System.out.println("Write a name of this new barn");

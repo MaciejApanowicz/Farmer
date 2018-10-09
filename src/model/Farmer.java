@@ -16,6 +16,10 @@ public class Farmer {
         farm = new ArrayList<>();
     }
 
+    public void setFarm(ArrayList<Barn> farm) {
+        this.farm = farm;
+    }
+
     public void addBarn (Barn barnToAdd) {
        farm.add(barnToAdd);
     }
@@ -39,11 +43,7 @@ public class Farmer {
 
         File file = new File("Farm.txt");
         String cleanOld = "";
-        try {
-            Files.write(file.toPath(),cleanOld.getBytes(),StandardOpenOption.TRUNCATE_EXISTING);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -51,26 +51,34 @@ public class Farmer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        try {
+            Files.write(file.toPath(),cleanOld.getBytes(),StandardOpenOption.TRUNCATE_EXISTING);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         for (Barn b : farm){
-            String barnToWrite = b.toString();
+            String barnToWrite = b.barnFormatToWrite();
             try {
                 Files.write(file.toPath(),(barnToWrite + '\r'+'\n').getBytes(), StandardOpenOption.APPEND);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
     public ArrayList<Barn> loadFarm (){
         File file = new File("Farm.txt");
+        ArrayList<Barn> farma = new ArrayList<>();
         try {
             Scanner in = new Scanner(
                     new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\Farm.txt"),"UTF-8");
-            Barn [] barns = readFarm(in);
+            for (int i = 0 ;  i < 3; i++){
+                farma.add(Barn.readData(in));
+            }
+
             } catch (FileNotFoundException e1) {
             e1.printStackTrace();
         }
-        return new ArrayList<Barn>();
+        return farma;
     }
 
     public  static Barn[] readFarm(Scanner in){

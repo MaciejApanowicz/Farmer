@@ -142,7 +142,18 @@ public class Controller {
                     }catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
+
                     break;
+                }
+                case 10: {
+                    try {
+                        Scanner in = new Scanner(
+                                new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\Farm.txt"),"UTF-8");
+                        janusz.setFarm(janusz.loadFarm());
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+                    UserView.askForTheNextTask();
                 }
             }
         } while (choose != 7);
@@ -186,7 +197,7 @@ public class Controller {
         String barnName = scanner.nextLine();
         Barn newBarn = new Barn(barnName);
         newBarn.setId();
-        Barn.writeBarn(newBarn);
+        Barn.writeBarn(newBarn); //zapis na pliku
         return newBarn;
     }
 
