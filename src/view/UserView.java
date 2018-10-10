@@ -13,8 +13,8 @@ public class UserView {
         System.out.println(" 4 - Remove barn");
         System.out.println(" 5 - Remove animal");
         System.out.println(" 6 - Save farm to file");
-        System.out.println("10 - Load saved farm");
-        System.out.println(" 7 - EXIT");
+        System.out.println(" 7 - Load saved farm");
+        System.out.println(" 8 - EXIT");
     }
     public static void askForTheNameOfNewBarn(){
         System.out.println("Write a name of this new barn");

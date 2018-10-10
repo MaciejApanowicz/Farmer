@@ -2,8 +2,6 @@ package controller;
 
 import model.*;
 import view.UserView;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 import static java.lang.System.out;
 
@@ -125,38 +123,14 @@ public class Controller {
                     UserView.askForTheNextTask();
                     break;
                 }
-                case 8: {
-                    janusz.loadFarm();
-                    System.out.println(janusz.farm.toString());
+                case 7: {
+                    janusz.setFarm(janusz.loadFarm());
                     showFarmerBarns(janusz);
-                    break;
-                }
-                case 9: {
-                    try {
-                        Scanner in = new Scanner(
-                                new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\All_Animals_added_history2.txt"),"UTF-8");
-                                Animal x = Animal.readAnimal(in);
-
-                        System.out.println(x);
-                        //addAnimalToBarn(Animal.readAnimal(in));
-                    }catch (FileNotFoundException e){
-                        e.printStackTrace();
-                    }
-
-                    break;
-                }
-                case 10: {
-                    try {
-                        Scanner in = new Scanner(
-                                new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\Farm.txt"),"UTF-8");
-                        janusz.setFarm(janusz.loadFarm());
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
                     UserView.askForTheNextTask();
+                    break;
                 }
             }
-        } while (choose != 7);
+        } while (choose != 8);
         UserView.messageExit();
     }
 
@@ -197,7 +171,6 @@ public class Controller {
         String barnName = scanner.nextLine();
         Barn newBarn = new Barn(barnName);
         newBarn.setId();
-        Barn.writeBarn(newBarn); //zapis na pliku
         return newBarn;
     }
 
@@ -210,9 +183,7 @@ public class Controller {
         double animalAge = scanner.nextDouble();
         UserView.askIfVaccinated();
         boolean isItVaccinated = scanner.hasNext("yes");
-        Animal.writeAnimal(AnimalsFactory.getAnimal(animalType,animalName,animalAge,isItVaccinated));
         return AnimalsFactory.getAnimal(animalType, animalName, animalAge,isItVaccinated);
-
     }
 
     private void addAnimalToBarn(Animal animalToAdd) {

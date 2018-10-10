@@ -51,8 +51,9 @@ public class Farmer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        String rozmiarFarmy = String.valueOf(farm.size());
         try {
-            Files.write(file.toPath(),cleanOld.getBytes(),StandardOpenOption.TRUNCATE_EXISTING);
+            Files.write(file.toPath(),(rozmiarFarmy + '\r'+'\n').getBytes(),StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,36 +66,21 @@ public class Farmer {
             }
         }
     }
+
     public ArrayList<Barn> loadFarm (){
         File file = new File("Farm.txt");
-        ArrayList<Barn> farma = new ArrayList<>();
+        ArrayList<Barn> farmerFarm = new ArrayList<>();
         try {
-            Scanner in = new Scanner(
-                    new FileInputStream("C:\\Users\\Maciej\\Desktop\\JavaKariera\\Farmer2\\Farm.txt"),"UTF-8");
-            for (int i = 0 ;  i < 3; i++){
-                farma.add(Barn.readData(in));
-            }
-
-            } catch (FileNotFoundException e1) {
-            e1.printStackTrace();
+            Scanner in = new Scanner(new FileInputStream("Farm.txt"),"UTF-8");
+            int numberOflines = in.nextInt();
+            String line = in.nextLine();
+                for (int i = 0 ;  i < numberOflines; i++){
+                farmerFarm.add(Barn.readData(in));
+                }
+        }catch (FileNotFoundException e1) {
+                e1.printStackTrace();
         }
-        return farma;
-    }
-
-    public  static Barn[] readFarm(Scanner in){
-        int n = in.nextInt();
-        Barn [] barns = new Barn[n];
-        for (int i = 0; i < n; i ++){
-            barns [i] = readBarn(in) ;
-        }return barns;
-    }
-
-    public static Barn readBarn (Scanner in){
-        String line = in.nextLine();
-        String [] tokens = line.split("\\|");
-        int id = Integer.parseInt(tokens[0]);
-        String name = tokens [1];
-        return new Barn(name);
+    return farmerFarm;
     }
 }
 

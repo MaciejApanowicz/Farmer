@@ -3,7 +3,7 @@ package model;
 public class AnimalsFactory {
     private static AnimalsFactory INSTANCE = new AnimalsFactory();
 
-    AnimalsFactory(){}
+    private AnimalsFactory(){}
 
     public static AnimalsFactory getINSTANCE(){
         return INSTANCE;
